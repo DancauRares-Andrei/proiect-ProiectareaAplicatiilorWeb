@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 const HomePage = (props) => {
   const [score, setScore] = useState('');
   const [epoch, setEpoch] = useState('');
@@ -69,8 +69,13 @@ const HomePage = (props) => {
       } catch (error) {
         console.error('Eroare în timpul cererii:', error);
       }
-    };
+    };  
+    useEffect(() => {
+    GetMessages();
+  }, []);
+  useEffect(() => {
     fetchData();
+  }, [score]);
   const logoutUser = async () => {
       if (props.token) {
         try {
@@ -119,7 +124,6 @@ const HomePage = (props) => {
     });
     if(response.status!==204)
         return;
-    setScore(score+100);
     response = await fetch('http://localhost:8080/details/new-epoch', {
       method: 'PUT',
       headers: {
@@ -130,6 +134,7 @@ const HomePage = (props) => {
     });
     if(response.status!==204)
         return;
+    setScore(score+100);
   };
   const changePassword = async () => {
     if(newPassword==='')
