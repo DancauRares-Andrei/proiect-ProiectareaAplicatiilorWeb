@@ -62,7 +62,7 @@ public class APIController {
     public ResponseEntity<Map<String,String>> postMessage(@RequestBody String content){
         return chatService.postMessage(content);
     }
-    //Primirea paginilor cu 20 de mesaje, implicit prima
+    //Primirea paginilor cu 200 de mesaje, implicit prima
     @GetMapping("/chat")
     public List<MessageDTO> getMessages(@RequestParam(name = "page", defaultValue = "1") int page){
         return chatService.getMessages(page);

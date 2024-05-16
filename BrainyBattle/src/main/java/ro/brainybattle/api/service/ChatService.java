@@ -50,7 +50,7 @@ public class ChatService {
     }
     public List<MessageDTO> getMessages(int page){
         log.info("S-a cerut afisarea mesajelor din baza de date de catre utilizatorul " + SecurityContextHolder.getContext().getAuthentication().getName() + ".");
-        int pageSize = 20;
+        int pageSize = 200;
         if (page > 1000) // O limitare pentru a nu cauta pagini inexistente
             page = 1000;
         Pageable pageable = PageRequest.of(page - 1, pageSize, Sort.by("message_id").descending());
@@ -64,7 +64,7 @@ public class ChatService {
                     return messageDTO;
                 })
                 .collect(Collectors.toList());
-        Collections.reverse(messageDTOs);//Inversare pentru ca cele 20 de mesaje sa apara in ordinea trimiterii
+        Collections.reverse(messageDTOs);//Inversare pentru ca cele 200 de mesaje sa apara in ordinea trimiterii
         return messageDTOs;
     }
     public ResponseEntity<Map<String,String>> deleteMessage(long id_mesaj){

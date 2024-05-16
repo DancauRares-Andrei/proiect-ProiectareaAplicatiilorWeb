@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 const HomePage = (props) => {
   const [score, setScore] = useState('');
   const [epoch, setEpoch] = useState('');
@@ -12,12 +12,23 @@ const HomePage = (props) => {
   const [course, setCourse] = useState('');
   const [incorrectAnswer,setIncorrectAnswer] = useState('');
   const [newPassword,setNewPassword] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
   const epochs=['Preistorica','Antica','Medievala','Moderna','Contemporana'];
   if(props.token === undefined || props.token===''){
     props.resetProps();
     window.location.href = '/';
   }
-  useEffect(() => {//componentDidMount 
+  const GetMessages = async () => {
+      const response = await fetch(`http://localhost:8080/chat`, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${props.token}`,
+          },
+        });
+      const chatData = await response.json();
+      setMessages(chatData);
+  };
     const fetchData = async () => {
       try {
         var response = await fetch(`http://localhost:8080/details`, {
@@ -60,7 +71,6 @@ const HomePage = (props) => {
       }
     };
     fetchData();
-  },[props,score]);
   const logoutUser = async () => {
       if (props.token) {
         try {
@@ -135,8 +145,28 @@ const HomePage = (props) => {
     if(response.status!==200)
         return;
     alert("Parola a fost modificată cu succes!");
-  };  
+  };
+  const handleInputChange = (event) => {
+    setNewMessage(event.target.value);
+  };
+  const handleSendMessage = async () => {
+    if (newMessage.trim() !== '') {
+      const response = await fetch('http://localhost:8080/chat/new-message', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        Authorization: `Bearer ${props.token}`,
+        'Content-Type':'application/json'
+      },
+      body: newMessage,
+    });
+      if(response.ok)
+        GetMessages();
+    }
+  };
+  
     return(
+    <div style={{ display: 'flex' }}>
     <div className="container mt-5">
         <div className="mb-4">
           <p>Scor: {score}</p>
@@ -202,6 +232,25 @@ const HomePage = (props) => {
         <button type="submit" className="btn btn-primary">Actualizare parolă</button>
           </form><br />     
         <button className="btn btn-secondary" onClick={logoutUser}>Deconectare</button>
+    </div>
+    <div style={{ flex: 1 }}>
+          <div className="chat-window" style={{ height: '200px', overflow:'auto' }}>
+        {messages.map((message, index) => (
+          <div key={index} className={`message ${message.username}`}>
+            {message.username}:{message.content}
+          </div>
+        ))}
+      </div>
+      <div className="input-area">
+        <input
+          type="text"
+          placeholder="Scrie un mesaj..."
+          value={newMessage}
+          onChange={handleInputChange}
+        />
+        <button onClick={handleSendMessage} className="btn btn-primary">Trimite</button>
+      </div>
+        </div>
     </div>
     );
 };
