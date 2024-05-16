@@ -17,8 +17,6 @@ public class APIController {
     @Autowired
     UACService uacService;
     @Autowired
-    QuizService quizService;
-    @Autowired
     ChatService chatService;
     @Autowired
     LectureService lectureService;
@@ -80,17 +78,6 @@ public class APIController {
         return chatService.viewMessageAdmin();
     }
 
-    @GetMapping("/quiz/{epochId}")
-    public Optional<List<Question>> getQuestionbyEpoch(@PathVariable String epochId)
-    {
-        return quizService.getQuestionbyEpoch(epochId);
-    }
-
-    @PostMapping("/quiz")
-    public ResponseEntity<Question> postQuestion(@RequestBody QuestionDTO q)
-    {
-        return quizService.postQuestion(q);
-    }
     //Vizualizarea cursului pentru o epoca
     @GetMapping("/lecture/{epoch_name}")
     public ResponseEntity<Lecture> getLecture(@PathVariable String epoch_name){

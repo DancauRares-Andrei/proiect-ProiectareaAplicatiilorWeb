@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import ro.brainybattle.api.service.QuizService;
 import ro.brainybattle.model.Epoch;
 import ro.brainybattle.model.Lecture;
 import ro.brainybattle.model.User;
@@ -56,6 +55,7 @@ public class UACApplication implements CommandLineRunner {
 			adminul.setUsername("admin");
 			adminul.setPassword("ParolaComplicata");
 			userRepository.save(adminul);
+			admin=userRepository.findByUsername("admin");
 		}
 		Optional<Epoch> optionalEpoch=epochRepository.findEpochByName("Preistorica");
 		if(optionalEpoch.isEmpty()){
