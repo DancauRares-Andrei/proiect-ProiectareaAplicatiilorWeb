@@ -1,0 +1,20 @@
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.csproj.AssemblyReference.cache
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.Properties.Resources.resources
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.csproj.GenerateResource.cache
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.csproj.CoreCompileInputs.cache
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\bin\Debug\BrainyBattleAdmin.exe.config
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\bin\Debug\BrainyBattleAdmin.exe
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\bin\Debug\BrainyBattleAdmin.pdb
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.exe
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.pdb
+C:\Users\Andrei Rares\source\repos\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.BrainyBattleAdmin.resources
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\bin\Debug\BrainyBattleAdmin.exe.config
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\bin\Debug\BrainyBattleAdmin.exe
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\bin\Debug\BrainyBattleAdmin.pdb
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.csproj.AssemblyReference.cache
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.BrainyBattleAdmin.resources
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.Properties.Resources.resources
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.csproj.GenerateResource.cache
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.csproj.CoreCompileInputs.cache
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.exe
+D:\TUIASI AC CTI\anul IV\Proiectarea aplicatiilor web\Proiect\Github\proiectpaw-batabuda\BrainyBattleAdmin\BrainyBattleAdmin\obj\Debug\BrainyBattleAdmin.pdb
