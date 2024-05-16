@@ -11,6 +11,7 @@ const HomePage = (props) => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [course, setCourse] = useState('');
   const [incorrectAnswer,setIncorrectAnswer] = useState('');
+  const epochs=['Preistorica','Antica','Medievala','Moderna','Contemporana'];
   if(props.token === undefined || props.token===''){
     props.resetProps();
     window.location.href = '/';
@@ -58,7 +59,7 @@ const HomePage = (props) => {
       }
     };
     fetchData();
-  },[props]);
+  },[props,score]);
   const logoutUser = async () => {
       if (props.token) {
         try {
@@ -89,15 +90,35 @@ const HomePage = (props) => {
   const handleAnswerSelect = (event) => {
     setSelectedAnswer(event.target.value);
   };
-  const checkAnswer = () => {
+  const checkAnswer = async () => {
     if(selectedAnswer==='')
         return;
-    console.log(correctAnswer)
     if(selectedAnswer!==correctAnswer){
         setIncorrectAnswer("Răspuns greșit!");
         return;
     }   
     setIncorrectAnswer("");
+    var response = await fetch('http://localhost:8080/details/new-score', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${props.token}`,
+        'Content-Type':'application/json'
+      },
+      body: 100,
+    });
+    if(response.status!==204)
+        return;
+    setScore(score+100);
+    response = await fetch('http://localhost:8080/details/new-epoch', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${props.token}`,
+        'Content-Type':'application/json'
+      },
+      body: epochs[(epochs.indexOf(epoch)+1)%epochs.length],
+    });
+    if(response.status!==204)
+        return;
   };
     return(
     <div className="container mt-5">
