@@ -28,4 +28,7 @@ public class Lecture {
     @OneToOne
     @JoinColumn
     private Epoch epoch;
+    @Getter
+    @Column(name="content",length=1000)
+    private String content;
 }
