@@ -53,9 +53,9 @@ public class APIController {
         return uacService.deleteUser(id);
     }
     //Utilizatorul isi poate actualiza parola.
-    @PutMapping(path = "/uac/accounts/{username}")
-    public ResponseEntity<Map<String,String>> updateUser(@PathVariable("username") String username,@RequestBody String new_pass){
-        return uacService.updateUser(username,new_pass);
+    @PutMapping(path = "/uac/accounts")
+    public ResponseEntity<Map<String,String>> updateUser(@RequestBody String new_pass){
+        return uacService.updateUser(new_pass);
     }
     //Adaugarea unui nou mesaj.
     @PostMapping("/chat/new-message")

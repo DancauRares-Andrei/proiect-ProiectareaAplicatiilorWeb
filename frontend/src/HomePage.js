@@ -11,6 +11,7 @@ const HomePage = (props) => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [course, setCourse] = useState('');
   const [incorrectAnswer,setIncorrectAnswer] = useState('');
+  const [newPassword,setNewPassword] = useState('');
   const epochs=['Preistorica','Antica','Medievala','Moderna','Contemporana'];
   if(props.token === undefined || props.token===''){
     props.resetProps();
@@ -120,6 +121,21 @@ const HomePage = (props) => {
     if(response.status!==204)
         return;
   };
+  const changePassword = async () => {
+    if(newPassword==='')
+        return;
+    var response = await fetch('http://localhost:8080/uac/accounts', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${props.token}`,
+        'Content-Type':'application/json'
+      },
+      body: newPassword,
+    });
+    if(response.status!==200)
+        return;
+    alert("Parola a fost modificată cu succes!");
+  };  
     return(
     <div className="container mt-5">
         <div className="mb-4">
@@ -175,6 +191,16 @@ const HomePage = (props) => {
       </form><br />
       <button class="btn btn-primary" onClick={checkAnswer}>Verifică răspunsul</button>
         </div>
+        <h4>Actualizare parolă</h4>
+        <form onSubmit={(e) => { e.preventDefault(); changePassword(); }}>
+        <div className="mb-3">
+              <label htmlFor="newPassword" className="form-label">
+                Parolă nouă:
+                <input type="password" id="newPassword" className="form-control" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+              </label>
+            </div>
+        <button type="submit" className="btn btn-primary">Actualizare parolă</button>
+          </form><br />     
         <button className="btn btn-secondary" onClick={logoutUser}>Deconectare</button>
     </div>
     );

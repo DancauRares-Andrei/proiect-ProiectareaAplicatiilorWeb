@@ -133,29 +133,21 @@ public class UACService {
             return new ResponseEntity<>(body, HttpStatus.FORBIDDEN);
         }
     }
-    public ResponseEntity<Map<String,String>> updateUser(String username,String new_pass) {
+    public ResponseEntity<Map<String,String>> updateUser(String new_pass) {
         String utilizator_curent=SecurityContextHolder.getContext().getAuthentication().getName();
-        if(Objects.equals(utilizator_curent, username)){
-            Optional<User> user=userRepository.findByUsername(username);
+            Optional<User> user=userRepository.findByUsername(utilizator_curent);
             if(user.isPresent()) {
-                userRepository.updatePassword(new_pass,username);
-                log.info("Utilizatorul "+utilizator_curent+" a modificat parola utilizatorului "+username);
+                userRepository.updatePassword(new_pass,utilizator_curent);
+                log.info("Utilizatorul "+utilizator_curent+" a modificat parola utilizatorului "+utilizator_curent);
                 Map<String, String> body = new HashMap<>();
                 body.put("detail","Parola actualizata cu succes.");
                 return new ResponseEntity<>(body,HttpStatus.OK);
             }
             else{
-                log.info("Adminul a incercat sa modifice parola lui "+username+", care nu exista.");
+                log.info("Adminul a incercat sa modifice parola lui "+utilizator_curent+", care nu exista.");
                 Map<String, String> body = new HashMap<>();
                 body.put("detail","Utilizatorul nu a fost gasit.");
                 return new ResponseEntity<>(body,HttpStatus.NOT_FOUND);
             }
-        }
-        else{
-            log.info("Utilizatorul "+utilizator_curent+" a incercat sa modifice parola lui "+username+".");
-            Map<String, String> body = new HashMap<>();
-            body.put("detail","Nu aveti acces la acest utilizator.");
-            return new ResponseEntity<>(body,HttpStatus.FORBIDDEN);
-        }
     }
 }

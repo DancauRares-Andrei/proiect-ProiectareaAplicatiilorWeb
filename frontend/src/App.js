@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from './LoginPage';
 import LayoutPage from './LayoutPage';
 import HomePage from './HomePage';
+import CreateUserPage from './CreateUserPage';
 import React, { useState } from 'react';
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
     <Route path="/" element={<LayoutPage />}>
     <Route index element={<LoginPage setToken={setToken} token={token} uid={uid} setUid={setUid} rol={rol} setRol={setRol} resetProps={resetProps}/>} />
     <Route path="/dashboard" element={<HomePage token={token} resetProps={resetProps}/>} />
+    <Route path="/create" element={<CreateUserPage resetProps={resetProps}/>} />
     </Route>
     </Routes>
     </BrowserRouter>
