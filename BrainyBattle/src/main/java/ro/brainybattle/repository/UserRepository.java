@@ -12,8 +12,6 @@ import jakarta.transaction.Transactional;
 import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-
-	// SELECT * FROM user WHERE username = :username
 	@Query("SELECT u FROM User u WHERE u.username = :username")
 	Iterable<User> findAllByUsername(@Param("username") String username);
 	@Query("SELECT u FROM User u WHERE u.username = :username")

@@ -103,5 +103,4 @@ public class UACApplication implements CommandLineRunner {
 			lectureRepository.save(lecture);
 		}
 	}
-
 }

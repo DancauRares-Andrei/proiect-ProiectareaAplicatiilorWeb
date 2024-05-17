@@ -77,7 +77,6 @@ public class APIController {
     public ResponseEntity<List<Message>> viewMessageAdmin(){
         return chatService.viewMessageAdmin();
     }
-
     //Vizualizarea cursului pentru o epoca
     @GetMapping("/lecture/{epoch_name}")
     public ResponseEntity<Lecture> getLecture(@PathVariable String epoch_name){

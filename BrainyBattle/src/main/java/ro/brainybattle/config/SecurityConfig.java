@@ -31,8 +31,6 @@ import java.util.Arrays;
 @EnableMethodSecurity
 @EnableJpaRepositories
 public class SecurityConfig {
-
-	// https://www.baeldung.com/java-config-spring-security
 	@Autowired
 	private JwtAuthFilter authFilter;
 	// User Creation

@@ -21,7 +21,6 @@ const LoginPage = (props) => {
       body: JSON.stringify({"username":username,"password":password}),
     });
     if(response.status===403){
-        //const resp=await response.json();
         setErrorLoginMessage("Utilizator sau parolă incorecte!");
     }
     else if (!response.ok) {
