@@ -1,0 +1,1 @@
+În cadrul acestui proiect am implementat o aplicație web numită BrainyBattle ce permite înregistrarea, logarea, modificarea parolei, răspunderea la un număr de întrebări ce incrementează un scor și folosirea unui chat minimal. Aplicatia destinată administratorului permite ștergerea mesajelor din chat și adăugarea de noi întrebări.
